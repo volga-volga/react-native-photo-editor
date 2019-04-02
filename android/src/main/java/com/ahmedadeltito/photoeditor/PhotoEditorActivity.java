@@ -381,7 +381,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
 
                 public void onFinish() {
                     String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-                    String imageName = "IMG_" + timeStamp + ".jpg";
+                    String imageName = "IMG_" + timeStamp + ".png";
                     Intent returnIntent = new Intent();
 
                     if (isSDCARDMounted()) {
@@ -400,7 +400,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
                             FileOutputStream out = new FileOutputStream(file);
                             if (parentImageRelativeLayout != null) {
                                 parentImageRelativeLayout.setDrawingCacheEnabled(true);
-                                parentImageRelativeLayout.getDrawingCache().compress(Bitmap.CompressFormat.JPEG, 80, out);
+                                parentImageRelativeLayout.getDrawingCache().compress(Bitmap.CompressFormat.PNG, 80, out);
                             }
 
                             out.flush();
@@ -434,7 +434,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
 
             public void onFinish() {
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-                String imageName = "/IMG_" + timeStamp + ".jpg";
+                String imageName = "/IMG_" + timeStamp + ".png";
 
                 // String selectedImagePath = getIntent().getExtras().getString("selectedImagePath");
                 //File file = new File(selectedImagePath);
@@ -445,7 +445,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
                     FileOutputStream out = new FileOutputStream(file);
                     if (parentImageRelativeLayout != null) {
                         parentImageRelativeLayout.setDrawingCacheEnabled(true);
-                        parentImageRelativeLayout.getDrawingCache().compress(Bitmap.CompressFormat.JPEG, 80, out);
+                        parentImageRelativeLayout.getDrawingCache().compress(Bitmap.CompressFormat.PNG, 80, out);
                     }
 
                     out.flush();

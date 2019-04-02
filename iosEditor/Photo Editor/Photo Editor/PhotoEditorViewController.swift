@@ -39,22 +39,22 @@ public final class PhotoEditorViewController: UIViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     
-    public var image: UIImage?
+    @objc public var image: UIImage?
     /**
      Array of Stickers -UIImage- that the user will choose from
      */
-    public var stickers : [UIImage] = []
+    @objc public var stickers : [UIImage] = []
     /**
      Array of Colors that will show while drawing or typing
      */
-    public var colors  : [UIColor] = []
+    @objc public var colors  : [UIColor] = []
     
-    public var photoEditorDelegate: PhotoEditorDelegate?
+    @objc public var photoEditorDelegate: PhotoEditorDelegate?
     var colorsCollectionViewDelegate: ColorsCollectionViewDelegate!
     
     // list of controls to be hidden
-    public var hiddenControls : [control] = []
-    
+    @objc public var hiddenControls : [NSString] = []
+
     var stickersVCIsVisible = false
     var drawColor: UIColor = UIColor.black
     var textColor: UIColor = UIColor.white
@@ -93,11 +93,11 @@ public final class PhotoEditorViewController: UIViewController {
         self.view.addGestureRecognizer(edgePan)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow),
-                                               name: UIResponder.keyboardDidShowNotification, object: nil)
+                                               name: .UIKeyboardDidShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
-                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+                                               name: .UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self,selector: #selector(keyboardWillChangeFrame(_:)),
-                                               name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+                                               name: .UIKeyboardWillChangeFrame, object: nil)
         
         
         configureCollectionView()
@@ -149,8 +149,3 @@ extension PhotoEditorViewController: ColorDelegate {
         }
     }
 }
-
-
-
-
-

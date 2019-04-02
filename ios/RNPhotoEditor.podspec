@@ -14,11 +14,12 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.library        = 'z'
   s.preserve_paths = '*.js'
-  s.source       = { :git => "https://github.com/prscX/react-native-photo-editor.git", :tag => "master" }
+  s.source       = { :git => "https://github.com/volga-volga/react-native-photo-editor.git", :tag => "master" }
   s.source_files  = "RNPhotoEditor/**/*.{h,m}"
   s.requires_arc = true
   s.static_framework = true
 
+  s.dependency "iOSPhotoEditor", :path => '../iosEditor/Photo Editor'
   s.dependency "React"
   #s.dependency "others"
 
